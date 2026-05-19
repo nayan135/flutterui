@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
      
       _counter++;
-      print(_counter);
     });
   }
 
@@ -94,13 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
     child: SingleChildScrollView(
       child: Column(
         children: [
-    
-         TextField(
+          TextField(
             decoration: InputDecoration(
               hintText: 'Search products...',
               prefixIcon: const Icon(Icons.search),
               filled: true,
-              fillColor: const Color.fromARGB(255, 231, 224, 224),
+              fillColor: Colors.grey.shade100,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
                 borderSide: BorderSide.none,
@@ -108,126 +106,68 @@ class _MyHomePageState extends State<MyHomePage> {
               contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             ),
           ),
-          SizedBox(height: 20),
-      
-      ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: Image.network(
-          "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: 250,
-        ),
-      ),
-        SizedBox(height: 20),
-     Row(
-  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  children: [
-    categoryItem(Icons.checkroom, "Fashion"),
-    categoryItem(Icons.devices, "Electronics"),
-    categoryItem(Icons.chair, "Home"),
-    categoryItem(Icons.brush, "Beauty"),
-  ],
-),
-
-
-    SizedBox(height: 20),
-   
-
-  Container(
-  width: 200,
-  height: 380, 
-  child: Card(
-    margin: EdgeInsets.all(13),
-    color: Colors.deepPurple,
-    elevation: 5,
-    shadowColor: Colors.amberAccent,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(6)),
-    ),
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // expanded fooorrr overflowwww issuee
-        Expanded(
-          child: Image.network(
-            "https://cdn.pixabay.com/photo/2013/07/25/13/01/stones-167089_1280.jpg",
-            fit: BoxFit.cover,
+          const SizedBox(height: 20),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.network(
+              "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: 250,
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                'NNNN nNnnn',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Checkinggg if thisss is displayeedd or noott',
-                style: TextStyle(color: Colors.grey[400]),
-              ),
+              categoryItem(Icons.checkroom, "Fashion"),
+              categoryItem(Icons.devices, "Electronics"),
+              categoryItem(Icons.chair, "Home"),
+              categoryItem(Icons.brush, "Beauty"),
             ],
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(14),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+          const SizedBox(height: 20),
+          Row(
             children: [
-              TextButton(
-                onPressed: () {
-                   print('Button is preddddd'); 
-                   _incrementCounter();
-                },
-                child: const Text(
-                  'Add to cart',
-                  style: TextStyle(color: Colors.amberAccent),
+              Card(
+                color: Colors.black45,
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                        leading: Icon(Icons.album),
+                        title: Text('Album Title'),
+                        subtitle: Text('Artist Name'),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          TextButton(
+                            onPressed: null,
+                            child: Text('BUY'),
+                          ),
+                          TextButton(
+                            onPressed: null,
+                            child: Text('LISTEN'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
-        ),
-      ],
-    ),
-  ),
-)
-
-            
-            
-
-
-          /*
-            Image.network(
-          "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
-          fit: BoxFit.cover,
-
-
-         
-        ),
-         
-        Text(
-          "1234",
-          style: TextStyle(color: CupertinoColors.black),
-        )
-          */ 
-          ],
-          )
-        )
-        
-        
-
-       
+        ],
       ),
-
-
-
-
-    
-    
+    ),
+   ),
 
 
 
@@ -277,9 +217,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ]
           ),
             */
-        
-      );
+    
    
+    );
+
+    
     
   }
 }
