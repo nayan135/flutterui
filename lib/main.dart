@@ -88,10 +88,11 @@ class _MyHomePageState extends State<MyHomePage> {
   ],
 
 ),
-   body:Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16), 
-   child: Column(
-    children: [
+   body: Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16),
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
     
         ClipRRect(
           
@@ -128,18 +129,65 @@ SizedBox(height: 20),
     categoryItem(Icons.brush, "Beauty"),
   ],
 ),
-    SizedBox(height: 20),
-    SizedBox(
-      height: 30,
-      
 
-     child:  Row(children: [
-      ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: Icon(
-          Icons.abc_rounded,
+
+    SizedBox(height: 20),
+     Row(children: [
+      Card( 
+        color: Colors.black45,
+        elevation: 3,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+
+        ),
+        child: const Padding(
+    padding: EdgeInsets.all(16.0),
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+             ListTile(
+          leading: Icon(Icons.album),
+          title: Text('Album Title'),
+          subtitle: Text('Artist Name'),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+       
+             children: <Widget>[
+            TextButton(
+              onPressed: null,
+              child: Text('BUY')),
+            TextButton(
+               onPressed: null,
+              child: Text('LISTEN')),
+          ],
+            
           
-        ), 
+        )
+            
+            
+
+
+          /*
+            Image.network(
+          "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+          fit: BoxFit.cover,
+
+
+         
+        ),
+         
+        Text(
+          "1234",
+          style: TextStyle(color: CupertinoColors.black),
+        )
+          */ 
+          ],
+          )
+        )
+        
+        
+
        
       ),
 
@@ -147,7 +195,7 @@ SizedBox(height: 20),
 
 
       ],)
-    )
+    
 
 
 
@@ -197,11 +245,9 @@ SizedBox(height: 20),
         ]
           ),
             */
-    ],
-    
-   ),
-
-  
+        ],
+      ),
+    ),
    ),
     );
     
@@ -215,15 +261,14 @@ Widget categoryItem(IconData icon, String text) {
     children: [
       CircleAvatar(
         radius: 28,
-        backgroundColor: Colors.grey.shade200,
+        backgroundColor: const Color.fromARGB(255, 145, 134, 134),
         child: Icon(
           icon,
           color: Colors.black,
         ),
       ),
 
-      const SizedBox(height: 5),
-
+      const SizedBox(height: 5), 
       Text(
         text,
         style: const TextStyle(fontSize: 12),
