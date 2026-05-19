@@ -134,6 +134,15 @@ SizedBox(height: 20),
       
 
      child:  Row(children: [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Icon(
+          Icons.abc_rounded,
+          
+        ), 
+       
+      ),
+
 
 
 
