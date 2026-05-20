@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'pages/home_page.dart';
+import 'pages/favorites_page.dart';
+import 'pages/orders_page.dart';
+import 'pages/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FlutterUI',
       theme: ThemeData(
-       
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 64, 37, 111)),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -23,37 +26,28 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
-
   final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
-
- 
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-     
-      _counter++;
-      print(_counter);
+      _selectedIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
- 
     return Scaffold(
-  appBar: AppBar(
-    
+      appBar: AppBar(
         backgroundColor: Colors.white,
-  
-        title: Row(
-          children: const [
+        title: const Row(
+          children: [
             Icon(
               Icons.shopping_bag,
               color: Colors.blue,
@@ -66,243 +60,57 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-             
-            
           ],
-      ),
-       actions: const [
-    Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      child: Icon(
-        Icons.notifications_none,
-        color: Colors.black,
-      ),
-    ),
-
-    Padding(
-      padding: EdgeInsets.only(right: 12),
-      child: Icon(
-        Icons.shopping_cart_outlined,
-        color: Colors.black,
-      ),
-    ),
-  ],
-
-),
-   body: Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16),
-    child: SingleChildScrollView(
-      child: Column(
-        children: [
-    
-         TextField(
-            decoration: InputDecoration(
-              hintText: 'Search products...',
-              prefixIcon: const Icon(Icons.search),
-              filled: true,
-              fillColor: const Color.fromARGB(255, 231, 224, 224),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide.none,
-              ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: Icon(
+              Icons.notifications_none,
+              color: Colors.black,
             ),
           ),
-          SizedBox(height: 20),
-      
-      ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: Image.network(
-          "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: 250,
-        ),
-      ),
-        SizedBox(height: 20),
-     Row(
-  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-  children: [
-    categoryItem(Icons.checkroom, "Fashion"),
-    categoryItem(Icons.devices, "Electronics"),
-    categoryItem(Icons.chair, "Home"),
-    categoryItem(Icons.brush, "Beauty"),
-  ],
-),
-
-
-    SizedBox(height: 20),
-   
-
-  Container(
-  width: 200,
-  height: 380, 
-  child: Card(
-    margin: EdgeInsets.all(13),
-    color: Colors.deepPurple,
-    elevation: 5,
-    shadowColor: Colors.amberAccent,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(6)),
-    ),
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // expanded fooorrr overflowwww issuee
-        Expanded(
-          child: Image.network(
-            "https://cdn.pixabay.com/photo/2013/07/25/13/01/stones-167089_1280.jpg",
-            fit: BoxFit.cover,
+          Padding(
+            padding: EdgeInsets.only(right: 12),
+            child: Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.black,
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'NNNN nNnnn',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Checkinggg if thisss is displayeedd or noott',
-                style: TextStyle(color: Colors.grey[400]),
-              ),
-            ],
+        ],
+      ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: const [
+          HomePage(),
+          FavoritesPage(),
+          OrdersPage(),
+          ProfilePage(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(14),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              TextButton(
-                onPressed: () {
-                   print('Button is preddddd'); 
-                   _incrementCounter();
-                },
-                child: const Text(
-                  'Add to cart',
-                  style: TextStyle(color: Colors.amberAccent),
-                ),
-              ),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorites',
           ),
-        ),
-      ],
-    ),
-  ),
-)
-
-            
-            
-
-
-          /*
-            Image.network(
-          "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
-          fit: BoxFit.cover,
-
-
-         
-        ),
-         
-        Text(
-          "1234",
-          style: TextStyle(color: CupertinoColors.black),
-        )
-          */ 
-          ],
-          )
-        )
-        
-        
-
-       
-      ),
-
-
-
-
-    
-    
-
-
-
-
-
-
-     /*       child: Center(
-              child: Column(
-            children: [
-            
-    /*  CircleAvatar(
-                 radius: 28,
-               backgroundColor: Colors.grey.shade200,
-               child: Icon(
-          Icons.abc_outlined,
-          color: Colors.black,
-        ),
-      ),
-
-      const SizedBox(height: 5),
-
-      Text(
-        "Hellooo",
-        style: const TextStyle(fontSize: 12),
-      ),
-      CircleAvatar(
-                 radius: 28,
-               backgroundColor: Colors.grey.shade200,
-               child: Icon(
-          icon,
-          color: Colors.black,
-        ),
-      ),
-
-      const SizedBox(height: 5),
-
-      Text(
-        text,
-        style: const TextStyle(fontSize: 12),
-      ),
-      */        
-    ],
-  )
-              
-              ),
-),
-        ]
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag),
+            label: 'Orders',
           ),
-            */
-        
-      );
-   
-    
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+      ),
+    );
   }
-}
-
-
-
-Widget categoryItem(IconData icon, String text) {
-  return Column(
-    children: [
-      CircleAvatar(
-        radius: 28,
-        backgroundColor: const Color.fromARGB(255, 145, 134, 134),
-        child: Icon(
-          icon,
-          color: Colors.black,
-        ),
-      ),
-
-      const SizedBox(height: 5), 
-      Text(
-        text,
-        style: const TextStyle(fontSize: 12),
-      ),
-    ],
-  );
 }
