@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(width: 5),
             Text(
-              "ShopHub",
+              "ShopUI",
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
