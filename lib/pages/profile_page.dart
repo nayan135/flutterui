@@ -12,8 +12,8 @@ class ProfilePage extends StatelessWidget {
           CircleAvatar(
             radius: 50,
             backgroundColor: Colors.deepPurple[200],
-        backgroundImage: NetworkImage(
-              'https://cdn.hackclub.com/019e4412-1ddd-72fe-b0ac-25149cf09fd2/nayan-acharya.jpg',)
+        backgroundImage: AssetImage(
+              'assets/nayan-acharya.webp',)
           ),
           const SizedBox(height: 16),
           const Text(

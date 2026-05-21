@@ -41,8 +41,8 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+              child: Image.asset(
+                "assets/random.jpg",
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 250,
@@ -146,8 +146,8 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       // expanded for overflowwwww controolll 
                       Expanded(
-                        child: Image.network(
-                          "https://cdn.pixabay.com/photo/2013/07/25/13/01/stones-167089_1280.jpg",
+                        child: Image.asset(
+                          "assets/fornt.jpg",
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -267,5 +267,6 @@ Widget categoryItem(IconData icon, String text) {
         style: const TextStyle(fontSize: 12),
       ),
     ],
+    
   );
 }
