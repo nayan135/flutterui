@@ -79,7 +79,7 @@ class FavoritesPage extends StatelessWidget {
                                 const SizedBox(height: 8),
 
                                 Text(
-                                  'Beautiful modern product for your wishlist.',
+                     'Beautiful modern product for your wishlist.',
                                   style: TextStyle(
                                     color: Colors.grey.shade600,
                                     fontSize: 14,
@@ -90,7 +90,7 @@ class FavoritesPage extends StatelessWidget {
 
                                 Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                        MainAxisAlignment.spaceBetween,
                                   children: [
                                     const Text(
                                       '\$120',
@@ -99,13 +99,13 @@ class FavoritesPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18,
                                       ),
-                                    ),
+                       ),
 
-                                    Container(
+      Container(
                                       padding: const EdgeInsets.all(8),
                                       decoration: BoxDecoration(
                                         color: Colors.red.shade50,
-                                        shape: BoxShape.circle,
+                     shape: BoxShape.circle,
                                       ),
                                       child: const Icon(
                                         Icons.favorite,
