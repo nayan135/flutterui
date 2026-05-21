@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // expanded for overflow issue
+                      // expanded for overflowwwww controolll 
                       Expanded(
                         child: Image.network(
                           "https://cdn.pixabay.com/photo/2013/07/25/13/01/stones-167089_1280.jpg",
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Padding(
                         padding: EdgeInsets.all(14),
-                        child: Row(
+                        child: Row( 
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             TextButton(

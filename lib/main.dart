@@ -68,10 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Icon(
               Icons.notifications_none,
               color: Colors.black,
+       
             ),
           ),
           Padding(
             padding: EdgeInsets.only(right: 12),
+            
             child: Icon(
               Icons.shopping_cart_outlined,
               color: Colors.black,

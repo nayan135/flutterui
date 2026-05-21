@@ -26,7 +26,7 @@ class OrdersPage extends StatelessWidget {
       return Card(
         margin: const EdgeInsets.only(bottom: 12),
          child: ListTile(
-           leading: Container(
+           leading: SizedBox(
                   width: 50,
                  height: 50,
                  child: const Icon(Icons.shopping_bag, color: Colors.blueAccent),
