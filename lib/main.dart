@@ -3,8 +3,56 @@ import 'pages/home_page.dart';
 import 'pages/favorites_page.dart';
 import 'pages/orders_page.dart';
 import 'pages/profile_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
-void main() {
+Future<void> getFCMToken() async {
+  try {
+    // 1. Request permission (Mandatory for iOS/Web)
+    NotificationSettings settings = await FirebaseMessaging.instance.requestPermission(
+      alert: true,
+      badge: true,
+      sound: true,
+    );
+
+    print("Notification permission status: ${settings.authorizationStatus}");
+
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      // 2. Get the token
+      String? token = await FirebaseMessaging.instance.getToken();
+      print("FCM Token: $token");
+      
+      // Also listen for token changes
+      FirebaseMessaging.instance.onTokenRefresh.listen((String newToken) {
+        print("FCM Token Refreshed: $newToken");
+      });
+    } else {
+      print("User declined or has not accepted permission: ${settings.authorizationStatus}");
+    }
+  } catch (e) {
+    print("Error getting FCM token: $e");
+  }
+}
+// Define background message handler at the top level
+Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) {
+  print("Handling a background message: ${message.messageId}");
+  return Future.value();
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  
+  // Get FCM token
+  await getFCMToken();
+  
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    print("Message received in foreground: ${message.notification?.title}");
+    // Handle foreground message here
+  });
+  
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+  
   runApp(const MyApp());
 }
 
