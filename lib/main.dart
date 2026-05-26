@@ -3,6 +3,7 @@ import 'pages/home_page.dart';
 import 'pages/favorites_page.dart';
 import 'pages/orders_page.dart';
 import 'pages/profile_page.dart';
+import 'pages/ai_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
@@ -137,6 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
           FavoritesPage(),
           OrdersPage(),
           ProfilePage(),
+          AiPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -159,6 +161,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
+          ),
+            BottomNavigationBarItem(
+            icon: Icon(Icons.air),
+            label: 'AI',
           ),
         ],
       ),
