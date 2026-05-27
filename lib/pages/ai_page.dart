@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -66,6 +67,22 @@ class _AiPageState extends State<AiPage> {
           children: [
             TextField(
               controller: _controller,
+=======
+
+class AiPage extends StatelessWidget {
+  const AiPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+     padding: const EdgeInsets.all(16),
+
+
+       child: SingleChildScrollView(
+         child: Column(
+          children: [
+            TextField(
+>>>>>>> b607743eb2d9a10a84d5695d4bc861eee5e48b4f
               decoration: InputDecoration(
                 hintText: 'ASKK.....',
                 prefixIcon: const Icon(Icons.question_mark),
@@ -78,6 +95,7 @@ class _AiPageState extends State<AiPage> {
                 contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
               ),
             ),
+<<<<<<< HEAD
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: isLoading ? null : makeRequest,
@@ -101,4 +119,14 @@ class _AiPageState extends State<AiPage> {
       ),
     );
   }
+=======
+          ]
+         )
+       )
+
+    );  
+
+   
+    }
+>>>>>>> b607743eb2d9a10a84d5695d4bc861eee5e48b4f
 }
