@@ -5,44 +5,131 @@ class OrdersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            const Text(
-              'Your Orders',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    final orders = [
+      {
+        "title": "Wireless Headphones",
+        "date": "26 May 2026",
+        "price": "\$120",
+        "status": "Delivered",
+      },
+      {
+        "title": "Gaming Mouse",
+        "date": "24 May 2026",
+        "price": "\$45",
+        "status": "Shipped",
+      },
+      {
+        "title": "Mechanical Keyboard",
+        "date": "20 May 2026",
+        "price": "\$89",
+        "status": "Processing",
+      },
+    ];
+
+    return Scaffold(
+      backgroundColor: Colors.grey.shade100,
+      appBar: AppBar(
+        title: const Text("My Orders"),
+        elevation: 0,
+      ),
+
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: orders.length,
+        itemBuilder: (context, index) {
+          final order = orders[index];
+
+          return Container(
+            margin: const EdgeInsets.only(bottom: 14),
+            padding: const EdgeInsets.all(14),
+
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(18),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 10,
+                  color: Colors.black.withValues(alpha: 0.05),
+                  offset: const Offset(0, 4),
+                )
+              ],
             ),
-            const SizedBox(height: 20),
 
-   ListView.builder(
-     shrinkWrap: true,
-     scrollDirection: Axis.vertical, 
-    itemCount: 3,
-    itemBuilder: (context,index){
-      return Card(
-        margin: const EdgeInsets.only(bottom: 12),
-         child: ListTile(
-           leading: SizedBox(
-                  width: 50,
-                 height: 50,
-                 child: const Icon(Icons.shopping_bag, color: Colors.blueAccent),
+            child: Row(
+              children: [
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.blue.shade50,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: const Icon(
+                    Icons.shopping_bag_outlined,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
+                ),
 
-                    ),
-                    title: const Text('nnnn'),
-                    subtitle: const Text('data'),
-                    trailing: const Text('naaa'),
-                  )
-                     
-      );
-    }
-   ),
+                const SizedBox(width: 14),
 
-          ],
-        ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        order["title"]!,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      const SizedBox(height: 6),
+
+                      Text(
+                        order["date"]!,
+                        style: TextStyle(
+                          color: Colors.grey.shade600,
+                          fontSize: 13,
+                        ),
+                      ),
+
+                      const SizedBox(height: 8),
+
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.green.shade100,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          order["status"]!,
+                          style: TextStyle(
+                            color: Colors.green.shade800,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Text(
+                  order["price"]!,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

@@ -43,7 +43,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   
-  // Initialize Firebase In-App Messaging
+  
   await FirebaseInAppMessaging.instance.triggerEvent('app_start');
   
   await getFCMToken();
