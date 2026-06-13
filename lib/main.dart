@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
-  int _cartCount = 0;
+  int _cartCount = 0;kj
 
   
   static const Color brandBlue = Color(0xFF1A6FE8);
