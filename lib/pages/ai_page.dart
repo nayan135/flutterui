@@ -23,7 +23,7 @@ class _AiPageState extends State<AiPage> {
 
     final url = Uri.parse('https://ai.hackclub.com/proxy/v1/chat/completions');
     final headers = { 
-      'Authorization': 'Bearer sk-hc-v1-0c83db6d631849af90c3635d3ab92b9d1a399981e5b9426a94929c20652df9c2',
+      'Authorization': 'Bearer tkn',
       'Content-Type': 'application/json',
     };
 
