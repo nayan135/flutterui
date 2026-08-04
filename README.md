@@ -26,6 +26,8 @@ profile
 # Run it locallyy
  For that you need to install `platform tools` and then configure it in the system vairable<br><br>
 Then `clone the project` and celebrate into project dir.<br><br>
+Once, `platform-tools` is configured just open you mobile and connect it via the wireless debugging option<br><br>
+OR you can just connect you device via USB cable.
 Now run `flutter run`
 
 
