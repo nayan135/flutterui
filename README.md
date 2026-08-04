@@ -24,8 +24,8 @@ profile
  Flutter 
 
 # Run it locallyy
- fFor that you need to install platform tools and then configure it to the part <br>
-Then clone the project and celebrate into project dir.<br>
+ For that you need to install `platform tools` and then configure it to the part <br><br>
+Then `clone the project` and celebrate into project dir.<br><br>
 Now run `flutter run`
 
 
