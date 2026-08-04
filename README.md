@@ -23,6 +23,12 @@ profile
  # Language Used
  Flutter 
 
+# Run it locallyy
+ fFor that you need to install platform tools and then configure it to the part <br>
+Then clone the project and celebrate into project dir.<br>
+Now run `flutter run`
+
+
  # why this
  I dont know i was just trying to learn flutter and thought of building this.
 
