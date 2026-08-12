@@ -23,6 +23,14 @@ profile
  # Language Used
  Flutter 
 
+
+# required things to run it locally (using your device as emulator 
+https://developer.android.com/tools/releases/platform-tools   <br>
+also to run it you need to first turn in developer options in your mobile phone and then from wireless debugging use connect with pairing code.
+<br>
+Then `adb pair ip:port` and then use `adb connect ip` <br>
+Now your device is finallyy connected
+
 # Run it locallyy
  For that you need to install `platform tools` and then configure it in the system vairable<br><br>
 Then `clone the project` and celebrate into project dir.<br><br>
