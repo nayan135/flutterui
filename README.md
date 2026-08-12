@@ -42,5 +42,11 @@ Now run `flutter run`
  # why this
  I dont know i was just trying to learn flutter and thought of building this.
 
+
+# Some snapshot 
+<img width="1006" height="2289" alt="771399025_1369647001378362_2255641481748188463_n" src="https://github.com/user-attachments/assets/cb32e09e-d84d-45b2-ba05-0ca98b80de1e" />
+<img width="1078" height="2247" alt="774104694_1038206779062618_2431679597517087263_n" src="https://github.com/user-attachments/assets/f612044d-a57c-4b27-a246-1719a15c2057" />
+<img width="1079" height="2237" alt="773188037_2178898739320884_508825266196980202_n" src="https://github.com/user-attachments/assets/54199977-d37b-45fb-92bd-67d3542d6a1b" />
+
  # Video as requested 
 https://cdn.hackclub.com/019f0772-21c5-77b8-b830-c241ab8ace79/videosub.mp4
